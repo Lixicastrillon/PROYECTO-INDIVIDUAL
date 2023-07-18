@@ -1,0 +1,45 @@
+.image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: -1;
+    object-fit: fill;
+}
+
+.title{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.letter{
+    text-align: left; 
+    font-family: Comic Sans MS; 
+    font-weight: bold; 
+    font-size: 35px; 
+    color:  rgb(219, 168, 218);  
+    text-shadow: -2px 0 #D1435Bff, 0 1px #D1435Bff, 1px 0 #D1435Bff, 0 -1px #D1435Bff;
+}
+
+.button{
+    padding: 10px 20px;
+    font-family: Comic Sans MS; 
+    background-color:rgb(211, 132, 208) ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer
+}
+.button:hover{
+    background-color:rgb(187, 107, 184) ;
+}
+.button:active{
+    background-color:rgb(139, 69, 136)  ;
+}
