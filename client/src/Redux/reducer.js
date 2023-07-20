@@ -16,6 +16,7 @@ const reducer = (state = initialState, action) => {
         Dogs: action.payload,
         copyDogs: action.payload,
       };
+
     case "GET_DOG":
       return {
         ...state,
@@ -34,12 +35,6 @@ const reducer = (state = initialState, action) => {
         ), // compara string en orden alfabetico
       };
     case "FILTER_TEMPERAMENTS":
-      if (action.payload === "allDogs") {
-        return {
-          ...state,
-          Dogs: state.copyDogs
-        };
-      } else {
       const filteredTemperament = state.copyDogs.filter(
         (arg) =>
           arg.temperament &&
@@ -49,26 +44,26 @@ const reducer = (state = initialState, action) => {
         ...state,
         Dogs: filteredTemperament,
       };
-    }
+
     case "FILTER_ORIGIN":
       if (action.payload === "allDogs") {
         return {
           ...state,
-          Dogs: state.copyDogs
-        } 
-      }else {
-      const filterOrigin = state.copyDogs.filter((arg) => {
-        if (action.payload === "dataBase") {
-          return validate(arg.id);
-        } else {
-          return !validate(arg.id);
-        }
-      });
-      return {
-        ...state,
-        Dogs: filterOrigin,
-      };
-    }
+          Dogs: state.copyDogs,
+        };
+      } else {
+        const filterOrigin = state.copyDogs.filter((arg) => {
+          if (action.payload === "dataBase") {
+            return validate(arg.id);
+          } else {
+            return !validate(arg.id);
+          }
+        });
+        return {
+          ...state,
+          Dogs: filterOrigin,
+        };
+      }
     case "ORDER_RACE":
       const races = [...state.copyDogs];
       return {
@@ -81,6 +76,13 @@ const reducer = (state = initialState, action) => {
           }
         }),
       };
+    case "ALL_Dogs":
+      if (action.payload === "allDogs") {
+        return {
+          ...state,
+          Dogs: state.copyDogs,
+        };
+      }
 
     case "ORDER_WEIGHT":
       const weight = [...state.copyDogs];
@@ -88,24 +90,40 @@ const reducer = (state = initialState, action) => {
         ...state,
         Dogs: weight.sort((a, b) => {
           if (action.payload === "Upward") {
-            if(Number(a.weight.metric.toString().split(" - ")[0]).toString() !== "NaN"){
-              return Number(a.weight.metric.toString().split(" - ")[0]) - Number(b.weight.metric.toString().split(" - ")[0]) || Number(a.weight.metric.toString().split(" - ")[1]) - Number(b.weight.metric.toString().split(" - ")[1])
+            if (
+              Number(a.weight.metric.toString().split(" - ")[0]).toString() !==
+              "NaN"
+            ) {
+              return (
+                Number(a.weight.metric.toString().split(" - ")[0]) -
+                  Number(b.weight.metric.toString().split(" - ")[0]) ||
+                Number(a.weight.metric.toString().split(" - ")[1]) -
+                  Number(b.weight.metric.toString().split(" - ")[1])
+              );
             }
-            return -1
+            return -1;
           } else {
-            if(Number(b.weight.metric.toString().split(" - ")[0]).toString() !== "NaN"){
-              return Number(b.weight.metric.toString().split(" - ")[0]) - Number(a.weight.metric.toString().split(" - ")[0]) || Number(b.weight.metric.toString().split(" - ")[1]) - Number(a.weight.metric.toString().split(" - ")[1]) 
+            if (
+              Number(b.weight.metric.toString().split(" - ")[0]).toString() !==
+              "NaN"
+            ) {
+              return (
+                Number(b.weight.metric.toString().split(" - ")[0]) -
+                  Number(a.weight.metric.toString().split(" - ")[0]) ||
+                Number(b.weight.metric.toString().split(" - ")[1]) -
+                  Number(a.weight.metric.toString().split(" - ")[1])
+              );
             }
-            return -1
+            return -1;
           }
-        }), 
+        }),
       };
 
-      case "POST_DOGS":
-        return{
-          ...state,
-          Dogs:action.payload
-        }
+    case "POST_DOGS":
+      return {
+        ...state,
+        Dogs: action.payload,
+      };
 
     default:
       return { ...state };

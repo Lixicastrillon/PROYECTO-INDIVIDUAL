@@ -95,6 +95,13 @@ export const orderWeight = (weight)=>{
   payload:weight
   }
 }
+export const allDogs = (allDogs) => {
+  //todos los perros
+      return {
+        type: "ALL_Dogs",
+        payload: allDogs,
+      };
+    }
 
 export const postDogs=(dog)=>{
    return async (dispatch)=>{
@@ -111,7 +118,6 @@ export const postDogs=(dog)=>{
       console.log(error.message)
     }
    }
-
- 
-
 }
+
+

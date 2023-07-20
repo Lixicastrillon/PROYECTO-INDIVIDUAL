@@ -52,3 +52,20 @@
 justify-content: space-around
 
 }
+
+
+.all{
+    font-size: 15px;
+    padding: 3px 8px;
+    background-color:rgb(165, 94, 163) ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+    display: flex;
+ 
+
+
+
+    
+}

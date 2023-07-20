@@ -9,6 +9,7 @@ import {
   filterOrigin,
   orderRaza,
   orderWeight,
+  allDogs
 } from "../../Redux/action";
 
 const NavBar = () => {
@@ -25,6 +26,7 @@ const NavBar = () => {
     dispatch(filterTemperaments(event.target.value)); // filtro de los temperamentos
   };
 
+
   const filterApiAndDatabase = (event) => {
     //filtro de los perros
     dispatch(filterOrigin(event.target.value));
@@ -38,11 +40,17 @@ const NavBar = () => {
     // ordenar peso
     dispatch(orderWeight(event.target.value));
   };
+const allDog =(event)=>{
+    dispatch ( allDogs(event.target.value))}
+ 
+
+
 
   return (
     <div className={style.color}>
       <div className={style.m}>
         <h1 className={style.tittle}> 🌏 Dog world 💗🐶</h1>
+      <button   className={style.all} value={"allDogs"} onClick={(e)=>allDog(e)}> All Dogs </button>
         <SearchBar/>
       </div>
       <div className={style.changes}>
@@ -55,7 +63,7 @@ const NavBar = () => {
 
         <label> Select Temperament </label>
         <select onChange={filter} className={style.button}>
-          <option value={"allDogs"}> All Dogs </option>
+          <option defaultValue  disabled >select</option>
           {temperament.length &&
             temperament.map((arg) => (
               <option key={arg.id} value={arg.name}>

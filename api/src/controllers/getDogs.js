@@ -4,6 +4,7 @@ const { Op } = require("sequelize");
 const { Dog } = require("../db");
 const { Temperament } = require("../db");
 
+//devuelve todos los perros de la api y la base de datos y si ingrsa un nombre , filtra por nombre
 const getDogs = async (req, res) => {
   try {
     
