@@ -1,0 +1,22 @@
+.button{
+ 
+    justify-content: space-around; 
+    font-size: 15px;
+    padding: 3px 8px;
+    background-color:rgb(165, 94, 163) ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+}
+.button1{
+    margin-top: 0;
+    justify-content: space-around; 
+    font-size: 15px;
+    padding: 3px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+

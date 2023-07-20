@@ -10,11 +10,10 @@ module.exports = (sequelize) => {
         defaultValue:DataTypes.UUIDV4 // algoritmo que me genera un UUID aleatorio
     },
     image:{
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.TEXT,
     },
     name:{
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(35),
         allowNull: false,
         set(value){
             this.setDataValue("name", value.toLowerCase());

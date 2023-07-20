@@ -4,7 +4,7 @@ const postDogs = async (req, res) => {
   try {
     const { image, name, height, weight, life_span, id } = req.body;
 
-    if (!image || !name || !height || !weight || !life_span || !id.length) {
+    if ( !name || !height || !weight || !life_span || !id.length) {
       return res.status(400).send("Missing data please fill in the required fields");
     }
     let temperamentSaved = await Promise.all(
@@ -20,7 +20,7 @@ const postDogs = async (req, res) => {
     }
     let createdDog = await Dog.create({
       image,
-      name,
+      name: name.trim(), // elimina los espacios que hay adelante y atras de un string
       height,
       weight,
       life_span,

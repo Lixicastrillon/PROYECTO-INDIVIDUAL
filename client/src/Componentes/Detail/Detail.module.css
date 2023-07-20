@@ -1,0 +1,38 @@
+.container{
+    padding-top: 18px;
+    padding-left: 470px;
+    background-color: transparent;
+    padding-bottom: 199px;
+    height: 400px;
+    width: 380px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    color:rgb(65, 65, 180);
+    text-shadow: 0 0 2px rgb(243, 25, 152);
+    font-size: 18px;
+    cursor:pointer;
+    text-align:center;
+
+  
+    
+}
+.contanier .card{
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    text-align: center;
+   
+}
+
+.img:hover{
+    transform: scale(1.2)
+  
+}
+
+.container .img{
+    height: 250px;
+    width: 350px;
+    border-radius: 20px;
+    transition:all 0.25s;
+}

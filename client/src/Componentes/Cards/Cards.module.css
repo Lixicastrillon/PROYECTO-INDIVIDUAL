@@ -1,11 +1,40 @@
-.cards{
+
+.container .cards{
     display: flex;
     flex-wrap: wrap;
     text-align:center;
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: center; 
     align-items: center;
     margin: auto;
     padding: 20px;
+   
 
 }
+
+.flechas{
+    display: flex;
+    text-align:center;
+    align-items: center;
+    padding: 10px;
+    font-size: 40px;
+    background-color:transparent;
+   border: none;
+   cursor:pointer;
+   transition:all 0.25s;
+
+}
+
+.flechas:hover{
+    transform: scale(1.2)
+  
+}
+.flecha{
+    display:flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    
+}
+
+
+

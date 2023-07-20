@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { getDogsName } from "../../Redux/action";
 import { useState } from "react";
+import style from "./SearchBar.module.css"
 
 const SearchBar = () => {
 
@@ -12,24 +13,20 @@ const SearchBar = () => {
     setName(event.target.value);
   };
   return (
-    <div >
-      <label type htmlFor="Bar">
-        Search by race
-      </label>
-      <input
-        placeholder="Search"
+    <div className={style.l}>
+      <input className={style.button1}
+        placeholder="search breed"
         type="text"
         name="Bar"
          onkeydown="return /[a-z]/i.test(event.key)" //validar solo letras
         onChange={handleChange}
       />
-      <button
+      <button className={style.button}
         onClick={(e) => {
           e.preventDefault();
           dispatch(getDogsName(name));
         }}
-      >
-        Buscar
+      > Search
       </button>
     </div>
   );

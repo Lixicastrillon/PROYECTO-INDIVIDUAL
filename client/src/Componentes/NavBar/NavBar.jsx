@@ -2,38 +2,60 @@ import style from "./NavBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
 import React, { useEffect } from "react";
-import { getTemperaments,filterTemperaments, filterOrigin,orderRaza} from "../../Redux/action";
+import { Link } from "react-router-dom";
+import {
+  getTemperaments,
+  filterTemperaments,
+  filterOrigin,
+  orderRaza,
+  orderWeight,
+} from "../../Redux/action";
 
 const NavBar = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => { // accion traer temperamentos
+  useEffect(() => {
+    // accion traer temperamentos
     dispatch(getTemperaments());
   }, []);
 
-  const temperament = useSelector((state) => state.temperament);//estado global con temperamentos
+  const temperament = useSelector((state) => state.temperament); //estado global con temperamentos
 
   const filter = (event) => {
-    dispatch(filterTemperaments(event.target.value));// filtro de los temperamentos
+    dispatch(filterTemperaments(event.target.value)); // filtro de los temperamentos
   };
 
-  const filterApiAndDatabase = (event)=>{ //filtro de los perros
-dispatch(filterOrigin(event.target.value))
-  }
+  const filterApiAndDatabase = (event) => {
+    //filtro de los perros
+    dispatch(filterOrigin(event.target.value));
+  };
 
-  const orderRaces =(event)=>{
-    dispatch(orderRaza(event.target.value))
-  }
+  const orderRaces = (event) => {
+    // ordenar razas
+    dispatch(orderRaza(event.target.value));
+  };
+  const orderWeights = (event) => {
+    // ordenar peso
+    dispatch(orderWeight(event.target.value));
+  };
 
   return (
-    <div>
-      <div>
-        <SearchBar />
+    <div className={style.color}>
+      <div className={style.m}>
+        <h1 className={style.tittle}> 🌏 Dog world 💗🐶</h1>
+        <SearchBar/>
       </div>
+      <div className={style.changes}>
+        
 
-      <div>
-      <label>Select Temperament</label> 
-        <select onChange={filter} className={style.select}>
+        <label> 🪄 Do you want to create a dog? </label>
+        <Link to="/form">
+          <button className={style.button}>▶️</button>
+        </Link>
+
+        <label> Select Temperament </label>
+        <select onChange={filter} className={style.button}>
+          <option value={"allDogs"}> All Dogs </option>
           {temperament.length &&
             temperament.map((arg) => (
               <option key={arg.id} value={arg.name}>
@@ -41,32 +63,26 @@ dispatch(filterOrigin(event.target.value))
               </option>
             ))}
         </select>
-      </div>
 
-      <div>
-        <label>Filter by origin:</label>
-        <select onChange={filterApiAndDatabase}>
+        <label> Filter by origin </label>
+        <select className={style.button} onChange={filterApiAndDatabase}>
+        <option value={"allDogs"}> All Dogs </option>
           <option value="Api">Api</option>
-          <option value="dataBase" >Data base</option>
+          <option value="dataBase">Data base</option>
         </select>
-        </div>
 
-        <div>
-            <label>Race</label>
-          <select onChange={orderRaces}>
-            <option value="Upward">Upward</option>
-            <option value="Falling">Falling</option>
-          </select>
-          </div>
+        <label> Breed  </label>
+        <select onChange={orderRaces} className={style.button}>
+          <option value="Upward">Upward</option>
+          <option value="Falling">Falling</option>
+        </select>
 
-          <div>
-              <label>Weight</label>
-            <select>
-              <option value="Upward">Upward</option>
-              <option value="Falling">Falling</option>
-            </select>
-          </div>
-
+        <label> Weight </label>
+        <select className={style.button} onChange={orderWeights}>
+          <option value="Upward">Upward</option>
+          <option value="Falling">Falling</option>
+        </select>
+      </div>
     </div>
   );
 };

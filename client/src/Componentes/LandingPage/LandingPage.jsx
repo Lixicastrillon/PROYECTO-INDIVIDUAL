@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
   return (
     <div className={style.background}>
-      <img alt="" src={require("./tarde.jpg")} className={style.image} 
+      <img alt="" src={require("./mundoDog.jpg")} className={style.image} 
       />
       <div className={style.title}>
         <h1 className={style.letter}>Welcome to the world of dog knowledge</h1>

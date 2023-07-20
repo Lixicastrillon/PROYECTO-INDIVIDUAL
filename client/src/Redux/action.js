@@ -87,3 +87,31 @@ export const orderRaza = (races)=>{
   payload:races
   }
 }
+
+export const orderWeight = (weight)=>{
+  //ordenar peso
+  return{
+    type:"ORDER_WEIGHT",
+  payload:weight
+  }
+}
+
+export const postDogs=(dog)=>{
+   return async (dispatch)=>{
+    try {
+      const {data} = await axios.post("http://localhost:3001/dogs",dog)
+      if (data) {
+        alert("Dog created successfully")
+      }
+      return dispatch({
+        type:"POST_DOGS",
+        payload:data
+      })
+    } catch (error) {
+      console.log(error.message)
+    }
+   }
+
+ 
+
+}

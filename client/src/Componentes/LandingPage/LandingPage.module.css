@@ -14,7 +14,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 }
@@ -23,15 +23,15 @@
     text-align: left; 
     font-family: Comic Sans MS; 
     font-weight: bold; 
-    font-size: 35px; 
-    color:  rgb(219, 168, 218);  
-    text-shadow: -2px 0 #D1435Bff, 0 1px #D1435Bff, 1px 0 #D1435Bff, 0 -1px #D1435Bff;
+    font-size: 28px; 
+    color:  rgb(217, 216, 240);  
+    text-shadow: -1.5px 0 rgb(250, 86, 135), 0 1px #D1435Bff, 1px 0 #D1435Bff, 0 -1px #D1435Bff;
 }
 
 .button{
-    padding: 10px 20px;
+    padding: 5px 10px;
     font-family: Comic Sans MS; 
-    background-color:rgb(211, 132, 208) ;
+    background-color:rgb(165, 94, 163) ;
     color: white;
     border: none;
     border-radius: 5px;
